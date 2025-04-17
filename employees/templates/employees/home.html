@@ -1,0 +1,13 @@
+{% extends 'employees/base.html' %}
+
+{% block title %}Home - Employee Management{% endblock %}
+
+{% block content %}
+    <h1 class="text-center">Welcome to Employee Management</h1>
+    <hr>
+    <div class="text-center mt-4">
+        <a href="{% url 'employee_list' %}" class="btn btn-primary btn-lg mx-2">View All Employees</a>
+        <a href="{% url 'add_employee' %}" class="btn btn-success btn-lg mx-2">Add Employee</a>
+        <a href="{% url 'search_employee' %}" class="btn btn-info btn-lg mx-2">Search Employee</a>
+    </div>
+{% endblock %}

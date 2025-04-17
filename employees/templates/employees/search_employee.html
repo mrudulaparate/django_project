@@ -1,0 +1,32 @@
+{% extends 'employees/base.html' %}
+
+{% block title %}Search Employee{% endblock %}
+
+{% block content %}
+    <h1 class="text-center mb-4">Search Employee</h1>
+    
+    <form method="POST" class="w-50 mx-auto">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="search" class="form-label">Search by Name</label>
+            <hr>
+            <input type="text" name="search" id="search" class="form-control" required>
+        </div>
+        <button type="submit" class="btn btn-info">Search</button>
+    </form>
+
+    {% if employees %}
+        <h2 class="mt-4">Search Results</h2>
+        <ul class="list-group mt-3">
+            {% for employee in employees %}
+                <li class="list-group-item">
+                    {{ employee.name }} - {{ employee.position }} - {{ employee.salary }} - {{ employee.email }}
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    <div class="text-center mt-4">
+        <a href="{% url 'home' %}" class="btn btn-secondary">Back to Home</a>
+    </div>
+{% endblock %}

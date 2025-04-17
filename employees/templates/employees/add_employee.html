@@ -1,0 +1,36 @@
+{% extends 'employees/base.html' %}
+
+{% block title %}Add Employee{% endblock %}
+
+{% block content %}
+    <h1 class="text-center mb-4">Add New Employee</h1>
+    
+    <form method="POST" class="w-50 mx-auto">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" name="name" id="name" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="position" class="form-label">Position</label>
+            <input type="text" name="position" id="position" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="salary" class="form-label">Salary</label>
+            <input type="number" name="salary" id="salary" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" name="email" id="email" class="form-control" required>
+        </div>
+
+        <button type="submit" class="btn btn-success">Add Employee</button>
+    </form>
+
+    <div class="text-center mt-4">
+        <a href="{% url 'employee_list' %}" class="btn btn-secondary">Back to Employee List</a>
+    </div>
+{% endblock %}
